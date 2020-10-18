@@ -1,0 +1,600 @@
+@charset "UTF-8";
+
+/*
+    Comentarios de desarrollo:
+    Mike Guijarro - miercoles 14 oct, 2020.
+
+    Para la siguiente guia de estilo se considera una combinacion
+    de BEM superficial (aun no conozco su implementacion en profundidad)
+    por lo cual se podrian tener errores de convencion de nombres, sin 
+    embargo se rescata su metologia de la mejor forma posible.
+
+    Haciendo una excepcion tomaremos la metodologia de atomic design
+    exclusivamente para los textos, agregandolo directamente como una clase extra.
+    
+    Notas futuras:
+    Aprender sass...
+*/
+
+/*
+    Colors
+*/
+
+:root {
+    --title-active: #14142b;
+    --body: #4e4b66;
+    --label: #6e7191;
+    --placeholder: #a0a3bd;
+    --line: #d6d8e7;
+    --input-background: #eff0f6;
+    --background: #d6d8e7;
+    --off-white: #d6d8e7;
+
+    --primary-default: #8ac926;
+    --primary-light: #ceff80;
+    --primary-dark: #4c7b00;
+
+    --secundary-default: #1b7a98;
+    --secundary-light: #afdbe9;
+    --secundary-dark: #00465d;
+
+    --error-default: #de562f;
+    --error-light: #ffc8b8;
+    --error-dark: #a72500;
+
+    --success-default: #00ba88;
+    --success-light: #c2fded;
+    --success-dark: #00966d;
+
+    --warning-default: #f4b740;
+    --warning-light: #fff0d4;
+    --warning-dark: #a26b00;
+
+    /*
+        Pendiente de agregar los gradientes
+    */
+}
+
+/*
+        Restart animation flickering
+*/
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+/*
+    Typography
+    -Display
+
+    Notas: No se esta considerando el line-height,
+    se usara el default
+*/
+
+.typo-display-lg {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+}
+
+.typo-display-md {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.typo-display-s {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.typo-display-lg-b {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.typo-display-md-b {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.typo-display-s-b {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/*
+    Typography
+    -Text
+*/
+
+.typo-text-lg {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.typo-text-md {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.typo-text-s {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.typo-text-xs {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.typo-link-lg {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.typo-link-md {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.typo-link-s {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.typo-link-xs {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/*
+    Buttons
+*/
+
+.button {
+    display: inline-flex;
+    flex-direction: row;
+    flex-basis: 0;
+    padding: 8px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.15s background ease-in, 0.15s color ease-in,
+        0.15s border ease-in;
+}
+
+.button__prepend {
+    padding-right: 6px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+}
+
+.button__prepend__icon {
+    color: var(--primary-dark);
+}
+
+.button__body {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 1;
+}
+
+.button__append {
+    padding-left: 6px;
+    flex-shrink: 1;
+}
+
+.button__primary {
+    background: var(--primary-default);
+    color: white;
+    border: 2px solid transparent;
+}
+
+.button__primary:hover {
+    background: var(--primary-dark);
+}
+
+.button__secondary {
+    background: transparent;
+    color: var(--primary-default);
+    border: 2px solid var(--primary-default);
+}
+
+.button__secondary:hover {
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
+}
+
+.button__subtle {
+    background: transparent;
+    color: var(--primary-default);
+    border: 2px solid var(--line);
+}
+
+.button__subtle:hover {
+    color: var(--primary-dark);
+}
+
+.button__text {
+    background: transparent;
+    color: var(--primary-default);
+    border: 2px solid transparent;
+}
+
+.button__text:hover {
+    color: var(--primary-dark);
+}
+
+.button__text__p-0 {
+    padding: 0;
+}
+
+/*
+    Elementos 
+*/
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    color: var(--title-active);
+}
+
+p,
+a {
+    color: var(--body);
+}
+
+/*
+    Container block
+    -Wrappers
+*/
+
+.wrapper {
+    width: 100vw;
+    /*Prevents the margin to collapse*/
+    float: left;
+}
+
+.wrapper__container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.wrapper__nav {
+    border-bottom: 2px solid transparent;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    transition: 0.15s background ease-in, 0.15s color ease-in, 0.5s border ease,
+        0.15s height ease-in-out;
+}
+
+.wrapper__nav__show-background {
+    background: white;
+    border-bottom: 2px solid var(--line);
+}
+
+/*
+    Navbar
+*/
+.main-nav {
+    height: 96px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav__logo-holder {
+}
+
+.main-nav__logo {
+    width: 150px;
+    height: auto;
+}
+
+.main-nav__list {
+    display: none;
+    list-style-type: none;
+}
+
+.main-nav__item {
+    margin-left: 48px;
+}
+
+.main-nav__item__mobile {
+    margin-bottom: 16px;
+}
+
+.main-nav__link {
+    text-decoration: none;
+}
+
+.main-nav__menu {
+    display: block;
+    border-color: var(--line);
+    color: var(--body);
+    cursor: pointer;
+}
+
+.main-nav__list-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    /*Hack max height sustituye a heigh auto*/
+    max-height: 300px;
+    transition: 0.15s background ease-in, 0.15s color ease-in, 0.5s border ease,
+        0.15s max-height ease-in-out, 0.15s opacity ease-in-out;
+}
+
+.main-nav__list-mobile__no-display {
+    max-height: 0px;
+    opacity: 0;
+}
+
+/* 
+    Hero
+*/
+
+.main-hero {
+    display: block;
+    margin-top: 200px;
+}
+
+.background-helper {
+    position: relative;
+}
+
+.background {
+    z-index: -2;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.wrapper__fill {
+    background: var(--input-background);
+    height: 80vh;
+}
+
+.wrapper__path {
+    fill: var(--input-background);
+}
+
+.main-hero__cta {
+    min-width: 275px;
+}
+
+.main-hero__images {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-hero__images-holder {
+    overflow: hidden;
+}
+
+.main-hero__item {
+    margin-bottom: 24px;
+}
+
+.main-hero__fruit {
+    display: inline-block;
+    transition: 0.15s opacity ease-in;
+}
+
+.main-hero__fruit__no-display {
+    display: none;
+}
+
+.main-hero__fruit__hide {
+    opacity: 0;
+}
+
+/*
+    Media Queries
+    Mobile first development
+*/
+
+/* Mobile Landscape Screen Sizes */
+
+@media only screen and (min-width: 480px) {
+}
+
+/* Desktop screen Sizes */
+
+@media only screen and (min-width: 768px) {
+    /*
+        Navbar
+    */
+
+    .main-nav__menu {
+        display: none;
+    }
+
+    .main-nav__list {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-nav__list-mobile {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /*
+        Header
+    */
+    .main-hero {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 80vh;
+        min-height: 700px;
+        margin-top: 100px;
+    }
+
+    .main-hero__cta {
+        max-width: 500px;
+        flex: 5 1 0;
+    }
+
+    .main-hero__images {
+        display: block;
+        flex: 7 1 0;
+        height: 100%;
+    }
+
+    .main-hero__fruit-1 {
+        z-index: 1;
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+    }
+    .main-hero__fruit-2 {
+        z-index: 1;
+        position: absolute;
+        /* transform: translate(50%, 50%); */
+        bottom: 0px;
+        right: -50px;
+    }
+
+    .main-hero__fruit-3 {
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translate(0, -45%);
+    }
+
+    .main-hero__fruit-4 {
+        z-index: 1;
+        position: absolute;
+    }
+
+    .main-hero__fruit-5 {
+        z-index: 1;
+        position: absolute;
+        top: 50px;
+        right: -100px;
+    }
+}
+
+/* Desktop HD screen Sizes */
+
+@media only screen and (min-width: 1200px) {
+    /*
+        Typography
+        -Display
+    */
+
+    .typo-display-lg {
+        font-size: 64px;
+    }
+
+    .typo-display-md {
+        font-size: 48px;
+    }
+
+    .typo-display-s {
+        font-size: 32px;
+    }
+
+    .typo-display-lg-b {
+        font-size: 64px;
+    }
+
+    .typo-display-md-b {
+        font-size: 48px;
+    }
+
+    .typo-display-s-b {
+        font-size: 32px;
+    }
+
+    /*
+    Typography
+    -Text
+*/
+
+    .typo-text-lg {
+        font-size: 24px;
+    }
+
+    .typo-text-md {
+        font-size: 18px;
+    }
+
+    .typo-text-s {
+        font-size: 16px;
+    }
+
+    .typo-text-xs {
+        font-size: 14px;
+    }
+
+    .typo-link-lg {
+        font-size: 24px;
+    }
+
+    .typo-link-md {
+        font-size: 18px;
+    }
+
+    .typo-link-s {
+        font-size: 16px;
+    }
+
+    .typo-link-xs {
+        font-size: 14px;
+    }
+
+    .button__body {
+        font-size: 16px;
+    }
+}

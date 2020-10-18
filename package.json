@@ -1,0 +1,18 @@
+{
+  "name": "merkadito-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mikeguijarro",
+  "license": "ISC",
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mongoose": "^5.10.9"
+  }
+}
