@@ -9,25 +9,105 @@
                 <p class="typo-text-lg">La selección más fresca de frutas y verduras hasta la puerta de tu casa.</p>
             </div>
             <div class="main-hero__item">
-                    <a href="#" class="button button__primary">
-                        <span class="button__body"> ¡Empezar a comprar!</span>
-                    </a>
+                <a href="#" class="button button__primary">
+                    <span class="button__body"> ¡Empezar a comprar!</span>
+                </a>
             </div>
         </div>
         <div class="main-hero__images">
-            <img draggable="false" src="/img/hero/circleKiwi.png" class="main-hero__fruit main-hero__fruit-1" alt="">
-            <img draggable="false" src="/img/hero/circleMandarina.png" class="main-hero__fruit main-hero__fruit-2"
-                alt="">
-            <img draggable="false" src="/img/hero/circleOrange.png" class="main-hero__fruit main-hero__fruit-3" alt="">
-            <img draggable="false" src="/img/hero/circlePeach3.png" class="main-hero__fruit main-hero__fruit-4" alt="">
-            <img draggable="false" src="/img/hero/circleToronja.png" class="main-hero__fruit main-hero__fruit-5" alt="">
+            <picture class="main-hero__fruit main-hero__fruit-1">
+                <source srcset="/img/fruits/circleKiwi.png" media="(min-width: 768px)"
+                    alt="Imagen 3d. Aloha es creatividad y pasión.">
+                <img src="/img/fruits/x75/circleKiwi.png" draggable="false">
+            </picture>
+            <picture class="main-hero__fruit main-hero__fruit-2">
+                <source srcset="/img/fruits/circleMandarina.png" media="(min-width: 768px)"
+                    alt="Imagen 3d. Aloha es creatividad y pasión.">
+                <img src="/img/fruits/x75/circleMandarina.png" draggable="false">
+            </picture>
+
+            <picture class="main-hero__fruit main-hero__fruit-3">
+                <source srcset="/img/fruits/circleOrange.png" media="(min-width: 768px)"
+                    alt="Imagen 3d. Aloha es creatividad y pasión.">
+                <img src="/img/fruits/x75/circleOrange.png" draggable="false">
+            </picture>
+
+            <picture class="main-hero__fruit main-hero__fruit-4">
+                <source srcset="/img/fruits/circlePeach.png" media="(min-width: 768px)"
+                    alt="Imagen 3d. Aloha es creatividad y pasión.">
+                <img src="/img/fruits/x75/circlePeach.png" draggable="false">
+            </picture>
+
+            <picture class="main-hero__fruit main-hero__fruit-5">
+                <source srcset="/img/fruits/circleToronja.png" media="(min-width: 768px)"
+                    alt="Imagen 3d. Aloha es creatividad y pasión.">
+                <img src="/img/fruits/x75/circleToronja.png" draggable="false">
+            </picture>
         </div>
     </div>
 </div>
 
+{{!-- Info Content --}}
+
 <div class="wrapper">
-    <div class="wrapper__container">
-        <div style="height: 800px; background:transparent;">
+    <div class="wrapper__container info-content">
+        <div class="info-content__title-container">
+            <div class="info-content__title-item">
+                <h2 class="typo-display-sm-b">¿Cómo trabajamos?</h2>
+            </div>
+            <div class="info-content__title-item">
+                <p class="typo-text-md">Nuestro equipo selecciona las mejores frutas y verduras con las últimas medidas
+                    de higiene, para que uses
+                    tu tiempo en lo que de verdad importa, nosotros nos encargamos de lo demás ✨.</p>
+            </div>
+        </div>
+        <div class="info-content__steps-container">
+            <div class="info-content__image">
+                <picture>
+                    <source srcset="/img/fruits/circlePineapple.png" media="(min-width: 768px)"
+                        alt="Imagen 3d. Aloha es creatividad y pasión.">
+                    <img src="/img/fruits/x75/circlePineapple.png" draggable="false">
+                </picture>
+            </div>
+            <div class="info-content__steps">
+                <ul class="steps__list">
+                    <li class="steps__item">
+                        <span
+                            class="steps__number square__block-irregular square__block-irregular__yellow typo-display-md-b">
+                            1
+                        </span>
+                        <div class="steps__content">
+                            <h3 class="typo-display-sm">Mandanos tu lista de mercado</h3>
+                            <p class="typo-text-md">Envíanos tu lista de mercado vía facebook y nuestro chatbot te
+                                ayudará con tu pedido.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="steps__item">
+                        <span
+                            class="steps__number square__block-irregular square__block-irregular__green typo-display-md-b">
+                            2
+                        </span>
+                        <div class="steps__content">
+                            <h3 class="typo-display-sm">Agenda la entrega</h3>
+                            <p class="typo-text-md">Selecciona la dirección y fecha de tu pedido.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="steps__item">
+                        <span
+                            class="steps__number square__block-irregular square__block-irregular__orange typo-display-md-b">
+                            3
+                        </span>
+                        <div class="steps__content">
+                            <h3 class="typo-display-sm">Llevamos tu merkadito a domicilio</h3>
+                            <p class="typo-text-md">Para finalizar tu proceso de compra podrás pagar vía Paypal o
+                                efectivo el día de tu entrega.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

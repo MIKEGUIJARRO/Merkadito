@@ -121,13 +121,13 @@ class Nav {
         this.isOpen = false;
     }
 
-    showBackground (){
-        this.wrapperNavEl.classList.add('wrapper__nav__show-background');
+    showBackground() {
+        this.wrapperNavEl.classList.add("wrapper__nav__show-background");
         this.isBackgroundShown = true;
     }
 
-    hideBackground (){
-        this.wrapperNavEl.classList.remove('wrapper__nav__show-background');
+    hideBackground() {
+        this.wrapperNavEl.classList.remove("wrapper__nav__show-background");
         this.isBackgroundShown = false;
     }
 }
@@ -196,13 +196,19 @@ const navScrollHandler = (menuArg) => {
     menuArg.navBackgroundHandler(window.scrollY);
 };
 
+const removeInitialAnimations = () => {
+    const preload = document.querySelector('.preload');
+    preload.classList.remove('preload');
+};
+
+removeInitialAnimations();
 const fruitsHeroArr = new FruitsHero();
 fruitsHeroArr.init();
 windowSize(true, fruitsHeroArr);
 
 const menu = new Nav(menuEl);
 
-bodyEl[0].classList.remove("preload");
+
 window.addEventListener("resize", windowSize.bind(this, false, fruitsHeroArr));
 window.addEventListener("scroll", navScrollHandler.bind(this, menu));
 menuEl.addEventListener("click", menuHanler.bind(this, menu));
