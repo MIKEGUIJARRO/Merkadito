@@ -392,6 +392,7 @@
 
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 *,
 *:before,
@@ -750,6 +751,29 @@ a {
     align-self: center;
 }
 
+.main-footer {
+    height: 160px;
+    background: var(--background);
+    border-top: 2px solid var(--line);
+    margin-top: 160px;
+}
+
+.main-footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.main-footer__socialmedia {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-footer__socialmedia-item1 {
+    margin-bottom: 8px;
+}
+
 /*
     Media Queries
     Mobile first development
@@ -849,6 +873,18 @@ a {
     */
     .catalogue {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    /*
+        Footer
+    */
+    .main-footer__socialmedia {
+        flex-direction: row;
+    }
+    
+    .main-footer__socialmedia-item1 {
+        margin-bottom: 0;
+        margin-right: 8px;
     }
 }
 
