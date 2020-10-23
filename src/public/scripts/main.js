@@ -95,6 +95,7 @@ class Nav {
                 this.openList();
             }
         }
+        console.log(this.isOpen);
     }
 
     navBackgroundHandler(y) {
@@ -110,14 +111,32 @@ class Nav {
     }
 
     openList() {
-        this.navListMobile.classList.remove(
-            "main-nav__list-mobile__no-display"
-        );
+        this.navListMobile.classList.remove("main-nav__list-mobile__hidden");
+        setTimeout(() => {
+            this.navListMobile.classList.remove(
+                "main-nav__list-mobile__visually-hidden"
+            );
+        }, 20);
         this.isOpen = true;
     }
 
     closeList() {
-        this.navListMobile.classList.add("main-nav__list-mobile__no-display");
+        this.navListMobile.classList.add(
+            "main-nav__list-mobile__visually-hidden"
+        );
+        this.navListMobile.addEventListener(
+            "transitionend",
+            () => {
+                this.navListMobile.classList.add(
+                    "main-nav__list-mobile__hidden"
+                );
+            },
+            {
+                capture: false,
+                once: true,
+                passive: false,
+            }
+        );
         this.isOpen = false;
     }
 
@@ -197,8 +216,8 @@ const navScrollHandler = (menuArg) => {
 };
 
 const removeInitialAnimations = () => {
-    const preload = document.querySelector('.preload');
-    preload.classList.remove('preload');
+    const preload = document.querySelector(".preload");
+    preload.classList.remove("preload");
 };
 
 removeInitialAnimations();
@@ -207,7 +226,6 @@ fruitsHeroArr.init();
 windowSize(true, fruitsHeroArr);
 
 const menu = new Nav(menuEl);
-
 
 window.addEventListener("resize", windowSize.bind(this, false, fruitsHeroArr));
 window.addEventListener("scroll", navScrollHandler.bind(this, menu));

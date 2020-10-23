@@ -516,7 +516,11 @@ a {
         0.15s max-height ease-in-out, 0.15s opacity ease-in-out;
 }
 
-.main-nav__list-mobile__no-display {
+.main-nav__list-mobile__hidden {
+    display: none;
+}
+
+.main-nav__list-mobile__visually-hidden {
     max-height: 0px;
     opacity: 0;
 }
