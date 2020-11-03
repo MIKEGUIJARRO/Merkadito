@@ -1,0 +1,27 @@
+{{!-- Admin --}}
+<div class="wrapper wrapper-admin">
+    <div class="wrapper__container admin">
+        <div class="card admin-card">
+            <div class="sub-header__title-item">
+                <h2 class="typo-display-sm-b">Login</h2>
+            </div>
+            <div class="sub-header__title-item">
+                <p class="typo-text-md">Aquí se prepara la magia ✨.</p>
+            </div>
+            <form action="/admin" method="POST">
+            <div class="input">
+                <label for="" class="input__label">Id</label>
+                <input type="text" name="admin[id]" class="input__element" placeholder="Identificador personal">
+
+            </div>
+            <div class="input">
+                <label for="" class="input__label">Contraseña</label>
+                <input type="password" name="admin[password]" class="input__element" placeholder="* * * * * *">
+
+            </div>
+            <button class="button button__subtle">Verificar</button>
+        </form>
+        </div>
+        
+    </div>
+</div>
