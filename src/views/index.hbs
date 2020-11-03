@@ -300,17 +300,17 @@
                             condiciones</a>.</p>
                 </div>
             </div>
-            <form action="/signup" method="post">
+            <form action="/commentary" method="POST">
                     <div class="input">
-                        <input type="text" class="input__element" placeholder="Laura Musk">
+                        <input type="text" name="commentary[name]" class="input__element" placeholder="Laura Musk">
                         {{!-- <label for="" class="input__label">Nombre</label> --}}
                     </div>
                     <div class="input">
-                        <input type="tel" class="input__element" placeholder="+52 4443380956">
+                        <input type="tel" name="commentary[phone]" class="input__element" placeholder="+52 4443380956">
                         {{!-- <label for="" class="input__label">Celular</label> --}}
                     </div>
                     <div class="input">
-                        <textarea name="" id="" class="text-area" placeholder="Querido merkadito, tu selección de frutas y verduras esta fenomenal, sin embargo ✍️ ..."></textarea>
+                        <textarea name="commentary[comment]" name="" id="" class="text-area" placeholder="Querido merkadito, tu selección de frutas y verduras esta fenomenal, sin embargo ✍️ ..."></textarea>
                     </div>
                     <button class="button button__subtle">Enviar</button>
                 </form>
