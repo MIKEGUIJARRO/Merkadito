@@ -1,4 +1,3 @@
-import axios from 'axios';
 //import anime from 'animejs/lib/anime.es.js';
 //Pendiente de incluir animate js en la pag
 
@@ -221,24 +220,39 @@ const removeInitialAnimations = () => {
     preload.classList.remove("preload");
 };
 
-const formHandler = (event) => {
+const formHandler = async (event) => {
     event.preventDefault();
     const formEl = document.getElementById("feedback-form");
     const name = formEl.querySelector('input[name="commentary[name]"]');
     const phone = formEl.querySelector('input[name="commentary[phone]"]');
-    const comment = formEl.querySelector('textarea[name="commentary[comment]"]');
-    const commentary = {
-        name: name,
-        phone: phone,
-        comment: comment,
-    };
-    const isFormValid = inputValidation(name, phone, comment);
-    if (isFormValid) {
-        axios.post('http://localhost:4000/commentary', commentary);
-        console.log('Is valid');
-    }
+    const comment = formEl.querySelector(
+        'textarea[name="commentary[comment]"]'
+    );
 
-    
+    const isFormValid = inputValidation(name, phone, comment);
+
+    if (isFormValid) {
+        const commentary = {
+            name: name.value,
+            phone: phone.value,
+            comment: comment.value,
+        };
+        const response = await axios.post(
+            "http://localhost:4000/commentary",
+            commentary
+        );
+        console.log(response);
+        if (response.status >= 200 && response.status <= 300) {
+            name.classList.add("input__element__success");
+            phone.classList.add("input__element__success");
+            comment.classList.add("text-area__element__success");
+            setTimeout(() => {
+                name.classList.remove("input__element__success");
+                phone.classList.remove("input__element__success");
+                comment.classList.remove("text-area__element__success");
+            }, 1000);
+        }
+    }
 };
 
 const inputValidation = (name, phone, comment) => {
@@ -259,14 +273,14 @@ const inputValidation = (name, phone, comment) => {
         phone.classList.remove("input__element__error");
     }
 
-    if(!(comment.value.length >= 10)) {
-        comment.classList.add("text-area__error");
+    if (!(comment.value.length >= 10)) {
+        comment.classList.add("text-area__element__error");
         isCommentValid = false;
     } else {
-        comment.classList.remove("text-area__error");
+        comment.classList.remove("text-area__element__error");
     }
 
-    return (isNameValid && isPhoneValid && isCommentValid);
+    return isNameValid && isPhoneValid && isCommentValid;
 };
 
 removeInitialAnimations();
