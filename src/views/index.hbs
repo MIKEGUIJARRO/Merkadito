@@ -131,7 +131,8 @@
             </div>
             <div class="sub-header__title-item">
                 <p class="typo-text-md">Échale un ojo a nuestra selección de productos actuales, ¿No encontraste lo que
-                    necesitas? Deja tus sugerencias en la <a href="#feedback" class="typo-link-md">caja de comentarios</a>, nos
+                    necesitas? Deja tus sugerencias en la <a href="#feedback" class="typo-link-md">caja de
+                        comentarios</a>, nos
                     encantaría escuchar de ti 🎉.
             </div>
         </div>
@@ -309,20 +310,25 @@
                             condiciones</a>.</p>
                 </div>
             </div>
-            <form action="/commentary" method="POST">
-                    <div class="input">
-                        <input type="text" name="commentary[name]" class="input__element" placeholder="Laura Musk">
-                        {{!-- <label for="" class="input__label">Nombre</label> --}}
-                    </div>
-                    <div class="input">
-                        <input type="tel" name="commentary[phone]" class="input__element" placeholder="+52 4443380956">
-                        {{!-- <label for="" class="input__label">Celular</label> --}}
-                    </div>
-                    <div class="input">
-                        <textarea name="commentary[comment]" name="" id="" class="text-area" placeholder="Querido merkadito, tu selección de frutas y verduras esta fenomenal, sin embargo ✍️ ..."></textarea>
-                    </div>
-                    <button class="button button__subtle">Enviar</button>
-                </form>
+            <form id="feedback-form" action="/commentary" method="POST">
+                <div class="input">
+                    <label for="" class="input__label">Nombre</label>
+                    <input type="text" name="commentary[name]" class="input__element" placeholder="Laura Musk">
+
+                </div>
+                <div class="input">
+                    <label for="" class="input__label">Celular</label>
+                    <input type="tel" name="commentary[phone]" class="input__element" placeholder="+52 4443380956">
+
+                </div>
+                <div class="input">
+                    <label for="" class="input__label">Comentario</label>
+                    <textarea name="commentary[comment]" name="" id="" class="text-area"
+                        placeholder="Querido merkadito, tu selección de frutas y verduras esta fenomenal, sin embargo ✍️ ..."></textarea>
+
+                </div>
+                <button id="send-btn" class="button button__subtle">Enviar</button>
+            </form>
         </div>
         <div class="feedback-content__image">
             <picture>

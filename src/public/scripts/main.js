@@ -1,9 +1,10 @@
+import axios from 'axios';
 //import anime from 'animejs/lib/anime.es.js';
 //Pendiente de incluir animate js en la pag
 
 const bodyEl = document.getElementsByTagName("body");
 const menuEl = document.querySelector(".main-nav__menu");
-
+const sendBtn = document.querySelector("#send-btn");
 /* 
 Al momento de cargar la pagina se ve una animacion inical 
 'flickering', se resolvio añadiendo una clase a body .preload
@@ -207,7 +208,7 @@ const windowSize = (onLoad, fruitsHero) => {
     }
 };
 
-const menuHanler = (menuArg) => {
+const menuHandler = (menuArg) => {
     menuArg.menuClickHandler();
 };
 
@@ -220,6 +221,54 @@ const removeInitialAnimations = () => {
     preload.classList.remove("preload");
 };
 
+const formHandler = (event) => {
+    event.preventDefault();
+    const formEl = document.getElementById("feedback-form");
+    const name = formEl.querySelector('input[name="commentary[name]"]');
+    const phone = formEl.querySelector('input[name="commentary[phone]"]');
+    const comment = formEl.querySelector('textarea[name="commentary[comment]"]');
+    const commentary = {
+        name: name,
+        phone: phone,
+        comment: comment,
+    };
+    const isFormValid = inputValidation(name, phone, comment);
+    if (isFormValid) {
+        axios.post('http://localhost:4000/commentary', commentary);
+        console.log('Is valid');
+    }
+
+    
+};
+
+const inputValidation = (name, phone, comment) => {
+    let isNameValid = true;
+    let isPhoneValid = true;
+    let isCommentValid = true;
+    if (!(name.value.length > 4)) {
+        name.classList.add("input__element__error");
+        isNameValid = false;
+    } else {
+        name.classList.remove("input__element__error");
+    }
+
+    if (!(phone.value.length >= 10)) {
+        phone.classList.add("input__element__error");
+        isPhoneValid = false;
+    } else {
+        phone.classList.remove("input__element__error");
+    }
+
+    if(!(comment.value.length >= 10)) {
+        comment.classList.add("text-area__error");
+        isCommentValid = false;
+    } else {
+        comment.classList.remove("text-area__error");
+    }
+
+    return (isNameValid && isPhoneValid && isCommentValid);
+};
+
 removeInitialAnimations();
 const fruitsHeroArr = new FruitsHero();
 fruitsHeroArr.init();
@@ -229,4 +278,5 @@ const menu = new Nav(menuEl);
 
 window.addEventListener("resize", windowSize.bind(this, false, fruitsHeroArr));
 window.addEventListener("scroll", navScrollHandler.bind(this, menu));
-menuEl.addEventListener("click", menuHanler.bind(this, menu));
+menuEl.addEventListener("click", menuHandler.bind(this, menu));
+sendBtn.addEventListener("click", formHandler);

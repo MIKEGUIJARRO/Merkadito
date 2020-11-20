@@ -341,6 +341,18 @@
     max-width: 320px;
 }
 
+.input__element__success {
+    box-shadow: 0px 0px 0px 2px var(--success-dark);
+    color: var(--success-dark);
+    background: var(--success-light);
+}
+
+.input__element__error {
+    box-shadow: 0px 0px 0px 2px var(--error-default);
+    color: var(--error-default);
+    background: var(--error-light);
+}
+
 .input__element::placeholder {
     color: var(--placeholder);
 }
@@ -376,6 +388,18 @@
     max-height: 300px;
     min-height: 150px;
     width: 100%;
+}
+
+.text-area__success {
+    box-shadow: 0px 0px 0px 2px var(--success-default);
+    color: var(--success-default);
+    background: var(--success-light);
+}
+
+.text-area__error {
+    box-shadow: 0px 0px 0px 2px var(--error-default);
+    color: var(--error-default);
+    background: var(--error-light);
 }
 
 .text-area::placeholder {
