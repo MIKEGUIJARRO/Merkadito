@@ -340,7 +340,7 @@
     border: none;
     width: 100%;
     max-width: 320px;
-    transition: 0.15s all ease-in-out;
+    transition: 0.15s box-shadow ease-in-out;
 }
 
 .input__element__success {
@@ -390,7 +390,7 @@
     max-height: 300px;
     min-height: 150px;
     width: 100%;
-    transition: 0.15s all ease-in-out;
+    transition: 0.15s box-shadow ease-in-out;
 }
 
 .text-area__element__success {
