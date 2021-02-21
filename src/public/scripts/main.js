@@ -238,6 +238,7 @@ const formHandler = async (event) => {
             comment: comment.value,
         };
         const response = await axios.post(
+            //Dummy endpoint
             "http://localhost:4000/commentary",
             commentary
         );
