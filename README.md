@@ -1,5 +1,5 @@
 # Merkadito 🥑
-This is a landing page implemented with a NodeJs / Express / Firebase / Css3.
+This is a landing page implemented with a NodeJs / Express  / Css3.
 
 <h2 align="center">
   <a href="https://mikeguijarro.herokuapp.com" target="_blank"> 
