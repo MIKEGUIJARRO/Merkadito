@@ -8,7 +8,6 @@ const mongoose = require("mongoose");
 const app = express();
 
 //Connect DB
-// Mongo Path -> mongod --dbpath=/home/mike/data
 mongoose.connect("mongodb://localhost:merkadito/landing", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
